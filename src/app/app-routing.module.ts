@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './post/create/create.component';
+import { DetailsComponent } from './post/details/details.component';
 import { PostComponent } from './post/post.component';
 import { ShowComponent } from './post/show/show.component';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
    path:'post',
 
    children:[
+
     {
       path:'',
       component:PostComponent
@@ -36,6 +38,13 @@ const routes: Routes = [
 
       path:'show',
       component:ShowComponent
+
+    },
+
+    {
+
+      path:'details/:id',
+      component:DetailsComponent
 
     },
 
@@ -69,4 +78,4 @@ export class AppRoutingModule
 
 
 
- }
+}
