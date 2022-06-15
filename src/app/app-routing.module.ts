@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { AdminComponent } from './admin/admin.component';
+import { GuardService } from './guard.service';
 import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './post/create/create.component';
 import { DetailsComponent } from './post/details/details.component';
@@ -9,55 +11,65 @@ import { ShowComponent } from './post/show/show.component';
 
 const routes: Routes = [
 
- {
+  {
 
-   path:'about',
-   component:AboutComponent
+    path: 'about',
+    component: AboutComponent
 
- },
- {
+  },
 
-   //nested route
-   path:'post',
+  {
 
-   children:[
+    //nested route
+    path: 'post',
 
-    {
-      path:'',
-      component:PostComponent
-    },
+    children: [
 
-    {
+      {
+        path: '',
+        component: PostComponent
+      },
 
-      path:'create',
-      component:CreateComponent
+      {
 
-    },
+        path: 'create',
+        component: CreateComponent
 
-    {
+      },
 
-      path:'show',
-      component:ShowComponent
+      {
 
-    },
+        path: 'show',
+        component: ShowComponent
 
-    {
+      },
 
-      path:'details/:id',
-      component:DetailsComponent
+      {
 
-    },
+        path: 'details/:id',
+        component: DetailsComponent
 
-
-   ]
+      },
 
 
- },
+    ]
 
- {
 
-  path:'',
-  component:HomeComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,canActivate:[GuardService]
+  },
+
+  {
+    path:'home',
+    component:HomeComponent
+  },
+
+  {
+
+    path: '',
+    component: HomeComponent
 
   },
 
@@ -69,8 +81,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule 
-{
+export class AppRoutingModule {
 
 
 

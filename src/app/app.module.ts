@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './post/create/create.component';
 import { ShowComponent } from './post/show/show.component';
 import { DetailsComponent } from './post/details/details.component';
+import { AdminComponent } from './admin/admin.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,12 @@ import { DetailsComponent } from './post/details/details.component';
     CreateComponent,
     ShowComponent,
     DetailsComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LazyLoadImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
